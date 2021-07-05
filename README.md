@@ -1,4 +1,4 @@
-Prediction of Health Insurance Costs with Linear Regression (in R)
+Prediction of Health Insurance with Linear Regression (in R)
 ================
 
 ![](https://www.meaningfulwomen.com/wp-content/uploads/Why-Having-Health-Insurance-Is-Overall-A-Good-Thing-678x381.jpg)

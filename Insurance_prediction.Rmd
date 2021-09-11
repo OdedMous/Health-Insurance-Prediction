@@ -3,16 +3,22 @@ title: "Prediction of Health Insurance Costs with Linear Regression"
 output:
   html_document: default
   pdf_document: default
+  #output: rmarkdown::github_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r , include=FALSE}
+library(knitr)
+purl("Insurance_prediction.Rmd", documentation = 2)
+```
+
+```{r , include=FALSE}
+#knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ![](https://www.meaningfulwomen.com/wp-content/uploads/Why-Having-Health-Insurance-Is-Overall-A-Good-Thing-678x381.jpg)
 
 
-**Motivation:** Health insurance is a type of insurance that covers the whole or a part of the risk of a person incurring medical expenses. Health insurance companies desire to provide appropriate insurance for each person such that it may enhance the resources allocation of the company and may increase the loans they give. 
+**Motivation:** Health insurance is a type of insurance that covers the whole or a part of the risk of a person incurring medical expenses. Health insurance companies desire to provide appropriate insurance for each person such that it may enhance the resources allocation of the company and may increase the amount of loans they give. 
 
 **Goal:** Build a regression model which predicts health expenses for potential insured based on their personal information. 
 
@@ -142,7 +148,6 @@ scale_x_discrete(limits=factor(1:8))
 ```
 
 
-Interesting to see that the expensess is getting higer untill family_size=5, and then start to deacreasing. mabe because there are not many big families in the dataset.
 
 ```{r, echo=FALSE,  message = FALSE, warning = FALSE}
 ggplot(data, aes(x=region, y=expenses, group=region, fill=region)) +
@@ -223,7 +228,7 @@ ols_coll_diag(model)
 
 ```
 
-It can be seen that "children" and "family_size" are colinear with each other (as expected). We can see it because they both have high VIF (~9), and becausein the row of condition index with high value (26.26), thier variance proportions are close to 0.9. So we drop "children" and reapt multicollinearity checking without it:
+It can be seen that "children" and "family_size" are colinear with each other (as expected). We can see it because they both have high VIF (~9), and because in the row of condition index with high value (26.26), thier variance proportions are close to 0.9. So we drop "children" and reapt multicollinearity checking without it:
 
 ```{r, echo=FALSE,  message = FALSE, warning = FALSE}
 
@@ -233,11 +238,11 @@ ols_coll_diag(model)
 ```
 It seems there are no other variables that colinear with each other, so we remain these features.
 
-###  **Basic Model**
+###  **Baseline Model**
 
 Now we build a baseline model which consists only from the variables "age" and "smoker". we chosed these variables because it seems from the plots that both are important.
 
-In order to build the model properly, we e split the data into 75% train set and 25% test set.We will use the train set foe model development, and we will use the test set for evaluate the final model.
+In order to build the model properly, we split the data into 75% train set and 25% test set. We will use the train set for model development, and we will use the test set for evaluate the final model.
 
 
 ```{r, echo=FALSE,  message = FALSE, warning = FALSE}

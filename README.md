@@ -44,9 +44,6 @@ It can be seen that smokers have higer health expensess.
 
 <img src="Insurance_prediction_files/figure-gfm/unnamed-chunk-5-1.png" width="50%" /><img src="Insurance_prediction_files/figure-gfm/unnamed-chunk-5-2.png" width="50%" />
 
-Interesting to see that the expensess is getting higer untill
-family\_size=5, and then start to deacreasing. mabe because there are
-not many big families in the dataset.
 
 ![](Insurance_prediction_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->![](Insurance_prediction_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
